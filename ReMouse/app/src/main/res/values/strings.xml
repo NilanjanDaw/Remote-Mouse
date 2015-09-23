@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ReMouse</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="ipAddress">Enter IP Address</string>
+    <string name="IPAddressLabel">IP Address:</string>
+    <string name="leftClick">Left Click</string>
+    <string name="rightClick">Right Click</string>
+    <string name="portLabel">Port:</string>
+    <string name="portHint">Enter the Port</string>
+    <string name="connect">Connect</string>
+</resources>
