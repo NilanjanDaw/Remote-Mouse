@@ -1,7 +1,7 @@
 # Remote-Mouse
 This is a java based project which allows any person to control their computer mouse using their android smart phone over a wi-fi network.
 For creating a wi-fi hotspot in a Windows enviroment run the commands: 
-1. netsh wlan set wifihotspot mode = allow ssid = <username> key = <password>
+1. netsh wlan set wifihotspot mode = allow ssid = username key = password
 2. Press Enter
 3. netsh wlan start wifihotspot
 4. Press Enter
