@@ -2,6 +2,8 @@ package atlas.remouse;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,6 +37,17 @@ public class MainActivity extends Activity {
     clientThread ClientThread;
     int startX,startY;
     long curTime;
+
+    private final Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message message) {
+            if(message.obj.toString().equalsIgnoreCase("connected")) {
+                Toast.makeText(getBaseContext(),"Connected!",Toast.LENGTH_LONG).show();
+                connector.setVisibility(View.GONE);
+                mousePad.setEnabled(true);
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,11 +104,12 @@ public class MainActivity extends Activity {
             port = (EditText) findViewById(R.id.port);
             connect = (Button) findViewById(R.id.connect);
             connect.setOnClickListener(connectListener);
-            surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+            surfaceView = (SurfaceView) findViewById(R.id.surfaceView2);
 
             surfaceView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
+                    //Toast.makeText(getBaseContext(), "Touch", Toast.LENGTH_SHORT).show();
                     try {
                         switch (event.getActionMasked()) {
 
@@ -223,6 +237,9 @@ public class MainActivity extends Activity {
                 final Socket socket=new Socket(server,Integer.parseInt(serverPort));
                 final DataOutputStream out=new DataOutputStream(socket.getOutputStream());
                 Log.d("ClientThread", "Connected");
+                Message message= handler.obtainMessage();
+                message.obj = "connected";
+                handler.sendMessage(message);
                 connected = true;
                 while (connected)
                         try {
