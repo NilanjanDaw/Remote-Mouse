@@ -75,8 +75,9 @@
             android:id="@+id/ip"
             android:layout_alignParentTop="true"
             android:hint="@string/ipAddress"
+            android:layout_toEndOf="@+id/IP"
             android:layout_toRightOf="@+id/IP"
-            android:text="192.168.173.1" />
+            android:text="@string/IPAddress" />
 
         <TextView
             android:layout_width="wrap_content"

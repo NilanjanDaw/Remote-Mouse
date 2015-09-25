@@ -10,4 +10,5 @@
     <string name="portLabel">Port:</string>
     <string name="portHint">Enter the Port</string>
     <string name="connect">Connect</string>
+    <string name="IPAddress">192.168.173.1</string>
 </resources>
